@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════
+   DeepFlow Global Styles
+   Swiss Engineering Grid · Terminal Aesthetic
+   ═══════════════════════════════════════════════════ */
+
+/* ── 滚动条美化（WebKit） ──────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
+
+/* ── 瑞士工程网格背景 ──────────────────────────── */
+/* 浅色模式：淡蓝色网格线（精密纸张排版感） */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* 深色模式：极光青网格线（暗色终端冷峻质感） */
+.dark .grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+}
+
+/* ── 终端打字光标 ──────────────────────────────── */
+.cursor-blink::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* prefers-reduced-motion 降级：光标保持可见 */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink::after {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ── 深色盒强制样式 ────────────────────────────── */
+/* 终端模块和代码克隆模块在浅色模式下始终维持深色底，保证代码高亮对比度 */
+.terminal-dark-box {
+  background-color: #0b0f19 !important;
+  color: #e2e8f0 !important;
+}
+
+.code-dark-box {
+  background-color: #0a0d16 !important;
+  color: #e2e8f0 !important;
+}
+
+/* ── 选中高亮 ──────────────────────────────────── */
+::selection {
+  background-color: rgba(0, 229, 255, 0.3);
+  color: #ffffff;
+}
+
+/* ── 平滑滚动（可降级） ─────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

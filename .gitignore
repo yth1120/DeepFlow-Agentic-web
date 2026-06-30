@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build / cache artifacts
+.wrangler/
+.astro/
+
+# Build output
+dist/
+
+# Local environment secrets — DO NOT COMMIT
+.dev.vars
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

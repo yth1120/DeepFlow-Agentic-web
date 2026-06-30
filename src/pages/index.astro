@@ -1,0 +1,28 @@
+﻿---
+// DeepFlow 官方网站 — 单页主入口
+// Hybrid 模式：首页保持预渲染为静态 HTML，API 路由动态执行
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import HeroSection from '../components/HeroSection.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import ArchitectureSection from '../components/ArchitectureSection.astro';
+import ToolsMatrixSection from '../components/ToolsMatrixSection.astro';
+import DeveloperDocs from '../components/DeveloperDocs.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <main class="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-24">
+    <HeroSection />
+    <FeatureGrid />
+    <ArchitectureSection />
+    <ToolsMatrixSection />
+    <DeveloperDocs />
+  </main>
+
+  <Footer />
+</BaseLayout>

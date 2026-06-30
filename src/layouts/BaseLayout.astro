@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeepFlow Agentic - Desktop AI Coding Agent & Multi-Engine Scheduler</title>
+    <meta name="description" content="DeepFlow Agentic is a desktop AI co-pilot platform built for hackers. Local sandbox, ReAct agent, dual-engine architecture." />
+
+    <script is:inline>
+      (function(){
+        var T=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+        document.documentElement.classList.toggle('dark',T==='dark');
+        var L=localStorage.getItem('lang')||(navigator.language.startsWith('zh')?'zh':'en');
+        var EN={
+          nav_features:'Features',nav_demo:'Agent Demo',nav_architecture:'Architecture',nav_developer:'Dev Docs',nav_download:'Download',
+          hero_badge:'Local Sandbox · Powered by DeepSeek LLM',
+          hero_title_line1:'No Black Box,',hero_title_line2:'Take Control of Your AI Coding Agent',
+          hero_description:'DeepFlow is a desktop AI co-pilot platform built for hackers. Powered by native Electron, it drives local tools (Bash/LSP/Git) through a dual-path ReAct self-looping agent — no more "passive" AI.',
+          hero_stat_tools:'22 Tools',hero_stat_tools_sub:'Built-in safe & dangerous toolchain',
+          hero_stat_loop:'Dual-Loop',hero_stat_loop_sub:'Chat stream & standalone Agent loops',
+          hero_stat_local:'100%',hero_stat_local_sub:'Local workspace / sandboxed memory',
+          features_title:'Transparent Capabilities, Outside the System',
+          features_subtitle:'Open the "black box" between LLMs and the operating system. DeepFlow is not just a prompt sender — it is a fully auditable code execution engine.',
+          feature1_title:'Tri-Modal Permission Watchdog',feature1_desc:'Built-in Ask (confirm), Plan (approve), and AFE (auto-execute). Read-only operations pass silently; dangerous commands (Bash/Write) must pass strict interception review.',
+          feature2_title:'Dual-Path Autonomous Decision Engine',feature2_desc:'The main chat ReAct loop (fast response) and independent sub-agent TaskPlan (deep reasoning) run side by side. Built-in drift detection (Blocked → Stalled → Replan).',
+          feature3_title:'Git Worktree Sandbox Isolation',feature3_desc:'Never pollute your working directory! Independent worktrees are auto-created for concurrent agents. All modifications run in a dirty sandbox and merge only after review.',
+          feature4_title:'SQLite + Encrypted Persistent Memory',feature4_desc:'Built-in SQLite serves as long-term project memory. Security-sensitive settings (API keys) are serialized via Electron safeStorage with local hardware-backed encryption.',
+          feature5_title:'MCP (Model Context Protocol) Support',feature5_desc:'Full JSON-RPC over stdio compliance. Pull third-party MCP server nodes to dynamically integrate code indexing, document extraction, and database interaction capabilities.',
+          feature6_title:'Secure Plugin Dynamic Loader',feature6_desc:'Extension points are supported on the renderer side, but source code is strictly scanned for eval, child_process, fs, and irregular fetch calls before loading — eliminating rogue plugin data theft at the root.',
+          arch_title:'Transparent, Clean Dual-Process Architecture',arch_subtitle:'No black-box logic. This is how DeepFlow operates internally — every data flow under your control.',
+          tools_title:'Fully Decoupled Built-in Tool Matrix',tools_subtitle:'At each ReAct loop step, the agent selects the most appropriate toolset based on your system permission constraints.',
+          tools_danger_label:'Dangerous (requires approval)',tools_safe_label:'Safe (silent pass-through)',
+          dev_title:'Extend DeepFlow',dev_description:'DeepFlow is built entirely in TypeScript, with mirrored type definitions (electron/types.ts ↔ src/types/). Whether you want to extend low-level tools, connect enterprise MCP servers, or modify the 12 Zustand persistent stores, we have the infrastructure ready for you.',
+          dev_check1:'Vitest coverage thresholds for both frontend and backend',dev_check2:'Strict CSP enforcement and sandbox locks ensure main process security',
+          dev_step1_comment:'// 1. Clone the core repository',dev_step2_comment:'// 2. Create local environment config',dev_step3_comment:'// 3. Install dependencies & launch Electron dev mode',dev_titlebar:'Quick Clone & Start Development',dev_titlebar_type:'TypeScript / Vite',
+          footer_brand:'An ultra-secure, engineering-transparent AI-driven collaborative agent scheduler built on Electron.',
+          footer_spec_title:'Core Spec',footer_spec_1:'ReAct Loop Engine',footer_spec_2:'22 Built-in Tools',footer_spec_3:'MCP JSON-RPC',footer_spec_4:'Git Worktree Isolation',
+          footer_contrib_title:'Open Source',footer_contrib_1:'Developer Guide',footer_contrib_2:'Plugin Protocol',footer_contrib_3:'Shared Types',footer_contrib_4:'Vitest Coverage',
+          footer_support_title:'Support',footer_support_1:'Report Security Issues',footer_support_2:'GitHub Discussions',footer_support_3:'Discord Community',
+          footer_copyright:'© 2026 DeepFlow Core Contributors. Open source under MIT License.',footer_privacy:'Privacy',footer_license:'License'
+        };
+        window.__i18n=EN;
+        if(L==='en'){document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('[data-i18n]').forEach(function(e){var k=e.getAttribute('data-i18n');if(EN[k])e.textContent=EN[k]})})}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-slate-50 dark:bg-brand-black text-slate-800 dark:text-slate-100 font-sans selection:bg-brand-accent/30 selection:text-white transition-colors duration-200">
+    <div class="fixed inset-0 grid-bg pointer-events-none z-0" aria-hidden="true"></div>
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-brand-blue/5 dark:bg-brand-blue/10 rounded-full blur-[120px] pointer-events-none transition-all" aria-hidden="true"></div>
+    <div class="fixed bottom-10 right-1/4 w-96 h-96 bg-brand-accent/5 rounded-full blur-[120px] pointer-events-none transition-all" aria-hidden="true"></div>
+    <slot />
+  </body>
+</html>

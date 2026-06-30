@@ -1,0 +1,31 @@
+{
+  "version": "1.1.0",
+  "releaseDate": "2026-06-10",
+  "changelog": [
+    "新增双路径 ReAct 自闭环决策引擎，快响应 + 深考量双模并立",
+    "全面支持 MCP JSON-RPC over stdio 标准，自由扩展第三方能力节点",
+    "Git Worktree 沙箱隔离并发 Agent，拒绝弄脏本地工作目录",
+    "内置偏差检测算法：Blocked → 停滞 → 重规划三级防御机制",
+    "修复 Light 模式下终端及代码块的配色方案"
+  ],
+  "downloads": {
+    "windows": {
+      "label": "Windows (NSIS 安装包)",
+      "url": "https://github.com/yth1120/DeepFlow/releases/download/v1.1.0/DeepFlow.Setup.1.1.0.exe",
+      "size": "",
+      "arch": "x64"
+    },
+    "mac": {
+      "label": "macOS Intel (DMG)",
+      "url": "https://github.com/yth1120/DeepFlow/releases/download/v1.1.0/DeepFlow-1.1.0.dmg",
+      "size": "153 MB",
+      "arch": "x64"
+    },
+    "linux": {
+      "label": "Linux (AppImage)",
+      "url": "https://github.com/yth1120/DeepFlow/releases/download/v1.1.0/DeepFlow-1.1.0.AppImage",
+      "size": "158 MB",
+      "arch": "x64"
+    }
+  }
+}
